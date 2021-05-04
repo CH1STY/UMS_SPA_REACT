@@ -192,7 +192,7 @@ export const AddAccount = ()=>{
                         <td><input className="inputF" type="text" name="address" value={newUser.address} onChange={changeUser} /></td>
                     </tr>
                     <tr>
-                        <td className="labelT">Address:</td>
+                        <td className="labelT">Date of Birth:</td>
                         <td><input className="inputF" type="date" name="birthdate" value={newUser.birthdate} onChange={changeUser} /></td>
                     </tr>
                     <tr>

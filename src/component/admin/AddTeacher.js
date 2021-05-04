@@ -1,12 +1,13 @@
 import {useState} from 'react';
-import {useHistory} from 'react-router-dom';
+import {useFetch} from '../FetchFromPost';
 
 
-export const AddAdmin = ()=>{
+export const AddTeacher = ()=>{
 
   
   
-
+  var univUrl = "http://localhost/ForReact/public/api/fetchUniversityTable";
+  var universities = useFetch(univUrl).users;
 
     const [newUser, setNewUser] = useState({
         name: '',
@@ -16,6 +17,10 @@ export const AddAdmin = ()=>{
         password: '',
         password_confirmation:'',
         address:'',
+        birthdate:'',
+        salary:'',
+        university_id:'',
+        adminId:localStorage.getItem('adminId'),
       });
 
     const changeUser = (e)=>{
@@ -28,7 +33,7 @@ export const AddAdmin = ()=>{
     const FormSubmit = (e) =>{
         e.preventDefault();
 
-        var url="http://localhost/ForReact/public/api/addAdmin";
+        var url="http://localhost/ForReact/public/api/addTeacher";
       
 
 
@@ -53,6 +58,9 @@ export const AddAdmin = ()=>{
               var emailError="";
               var passwordError="";
               var addressError="";
+              var salaryError="";
+              var birthdateError="";
+              var univeristyError="";
             
               if(errors !==undefined)
               {
@@ -90,12 +98,30 @@ export const AddAdmin = ()=>{
                     valid = false;
                     
                   }
+                  if(errors.birthdate !==undefined)
+                  {
+                    birthdateError = errors.birthdate;
+                    valid = false;
+                    
+                  }
+                  if(errors.salary !==undefined)
+                  {
+                    salaryError = errors.salary;
+                    valid = false;
+                    
+                  }
+                  if(errors.university_id !==undefined)
+                  {
+                    univeristyError = errors.university_id;
+                    valid = false;
+                    
+                  }
               }
 
               if(!valid)
               {
                   
-                  alert(nameError+"\n"+userNameError+"\n"+phoneError+"\n"+passwordError+"\n"+addressError+"\n"+emailError);
+                  alert(nameError+"\n"+userNameError+"\n"+phoneError+"\n"+passwordError+"\n"+addressError+"\n"+emailError+"\n"+birthdateError+"\n"+salaryError+"\n"+univeristyError);
               }
               else
               {
@@ -108,6 +134,10 @@ export const AddAdmin = ()=>{
                     password: '',
                     password_confirmation:'',
                     address:'',
+                    birthdate:'',
+                    salary:'',
+                    university_id:'',
+                    adminId:localStorage.getItem('adminId'),
                   });
               }
 
@@ -128,7 +158,7 @@ export const AddAdmin = ()=>{
     
     return (
         <div className="container">      
-            <h1 align="center">Admin Registration Page</h1>
+            <h1 align="center">Teacher Registration Page</h1>
             <form onSubmit={FormSubmit}> 
                 
                 <table className="table formTable">
@@ -160,6 +190,26 @@ export const AddAdmin = ()=>{
                     <tr>
                         <td className="labelT">Address:</td>
                         <td><input className="inputF" type="text" name="address" value={newUser.address} onChange={changeUser} /></td>
+                    </tr>
+                    <tr>
+                        <td className="labelT">Date of Birth:</td>
+                        <td><input className="inputF" type="date" name="birthdate" value={newUser.birthdate} onChange={changeUser} /></td>
+                    </tr>
+                    <tr>
+                        <td className="labelT">Salary:</td>
+                        <td><input className="inputF" type="number" name="salary" value={newUser.salary} min='0' onChange={changeUser} /></td>
+                    </tr>
+                    <tr>
+                        <td className="labelT">University:</td>
+                        <select value={newUser.university_id} className="form-select" name="university_id" onChange={changeUser} >
+                         <option value="">Select University</option>
+                         {
+                           universities.map(university=>
+                              <option value={university.university_id}>{university.name}</option>
+                            )
+                         }
+                        </select>
+                        
                     </tr>
                     </tbody>
                 </table>

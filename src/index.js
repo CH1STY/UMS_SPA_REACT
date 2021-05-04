@@ -6,7 +6,10 @@ import {AdminLayout} from './component/admin/adminLayout';
 import {Teacherlayout} from './component/teacher/teacherlayout';
 import {AddAdmin} from './component/admin/AddAdmin';
 import {AddAccount} from './component/admin/AddAccount';
+import {AddTeacher} from './component/admin/AddTeacher';
+import {AddStudent} from './component/admin/AddStudent';
 import {AdminDashBoard} from './component/admin/AdminDashBoard';
+import {ViewUniv} from './component/admin/ViewUniv';
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
@@ -30,6 +33,16 @@ const Index = ()=>{
             
             <Route path='/admin/addAccount'>
               <AddAccount ></AddAccount>
+            </Route>
+            
+            <Route path='/admin/addTeacher'>
+              <AddTeacher></AddTeacher>
+            </Route>
+            <Route path='/admin/addStudent'>
+              <AddStudent/>
+            </Route>
+            <Route path='/admin/viewUniv'>
+              <ViewUniv/>
             </Route>
 
             <AdminLayout></AdminLayout>
