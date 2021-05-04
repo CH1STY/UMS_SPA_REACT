@@ -1,5 +1,7 @@
 
 import {useFetch} from '../FetchFromPost';
+import {Link} from 'react-router-dom';
+
 
     
 export const ViewUniv = ()=>{
@@ -28,7 +30,24 @@ export const ViewUniv = ()=>{
         </thead>
 
         <tbody>
-            
+            {
+                universities.map(university=>
+                    <tr>
+
+                        <td key={university.id}>{university.name}</td>
+                        <td key={university.id}>{university.university_id}</td>
+                        <td key={university.id}>{university.address}</td>
+                        <td key={university.id}>{university.admin_id}</td>
+                        <td key={university.id}>{university.updated_at.substr(0,10)}</td>
+                        <td>
+                            <Link to={`editUniv/${university.id}`}><button class="btn btn-primary">Edit</button></Link>
+                        </td>
+                        <td>
+                            <Link to={`editUniv/${university.id}`}><button class="btn btn-info">View</button></Link>
+                        </td>
+                    </tr>
+                    )
+            }
         </tbody>
        
                
