@@ -13,6 +13,10 @@ export  const  Login = () =>{
     {
       history.push('/admin');
     }
+    if(localStorage.getItem('userType')==='teacher')
+    {
+      history.push('/teacher');
+    }
     
   }
 
@@ -73,11 +77,6 @@ export  const  Login = () =>{
       }
 
      getUserlist();
-
-    
-
-    
-
 
     }    
 

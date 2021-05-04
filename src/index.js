@@ -19,6 +19,9 @@ const Index = ()=>{
         <Route exact path='/admin'>
             <AdminLayout></AdminLayout>
         </Route>
+        <Route exact path='/teacher'>
+            <Teacherlayout></Teacherlayout>
+        </Route>
 
       </Switch>
     </Router>
