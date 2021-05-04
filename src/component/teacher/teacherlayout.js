@@ -54,7 +54,7 @@ export const Teacherlayout = () => {
         <ul>
         <li className="dropdownList"> <Link to="">Students <span>&rsaquo;</span></Link>
         <ul>
-            <li><Link to="">View Student List</Link></li>
+            <li><Link to="/teacher/studentlist">View Student List</Link></li>
             <li><Link to="">Add student into course</Link></li>
         </ul>
         </li>
