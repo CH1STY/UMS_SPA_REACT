@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
+import './table.css';
 import {Link,useHistory} from 'react-router-dom';
 import useFetch from '../FetchFromPost';
 //import {useFetch} from '../FetchFromPost';
@@ -26,6 +27,7 @@ export const AdminLayout = () => {
   }
   var url = "http://localhost/ForReact/public/api/admin?adminId="+localStorage.getItem('adminId');
   const userData = useFetch(url).users;
+
 
   var imgSrc;
   if(userData.profile_pic===null)
@@ -58,7 +60,7 @@ export const AdminLayout = () => {
   <ul>
     <li className="dropdownList"> <Link to="">Add User <span>&rsaquo;</span></Link>
       <ul>
-        <li><Link to="">Add Admin</Link></li>
+        <li><Link to="/admin/addAdmin">Add Admin</Link></li>
         <li><Link to="">Add Account</Link></li>
         <li><Link to="">Add Teacher</Link></li>
         <li><Link to="">Add Student</Link></li>
