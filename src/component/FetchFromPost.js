@@ -1,4 +1,6 @@
 import {useState, useEffect} from 'react';
+
+
 export const useFetch = (url)=>{
 
     const [status, setStatus] = useState(true);
@@ -8,7 +10,7 @@ export const useFetch = (url)=>{
         const response = await fetch(url);
         const data = await response.json();
         
-        console.log(data);
+        
         setUsers(data);
         setStatus(false);
     }
@@ -19,3 +21,5 @@ export const useFetch = (url)=>{
     
     return { status, users };
 }
+
+export default useFetch;

@@ -1,11 +1,20 @@
-import {Redirect, useHistory} from 'react-router-dom';
+import { useHistory} from 'react-router-dom';
 
-import {useState,useEffect} from 'react';
+import {useState} from 'react';
 
 export  const  Login = () =>{
 
 
+  let history = useHistory();
   
+  if(localStorage.getItem('userType')!==null)
+  {
+    if(localStorage.getItem('userType')==='admin')
+    {
+      history.push('/admin');
+    }
+    
+  }
 
 
     const [newUser, setNewUser] = useState({
@@ -13,7 +22,7 @@ export  const  Login = () =>{
       password: '',
     });
     
-    const [datas,setData] = useState();
+  
 
   
     const changeUser = (e)=>{
@@ -27,23 +36,39 @@ export  const  Login = () =>{
       e.preventDefault();
       var url="http://localhost/ForReact/public/api/login";
       
-      const getUserlist = async ()=>{
-        const response = await fetch(url,{
-            method:'post',
-            body:JSON.stringify(newUser),
-            hearders:{
-                'Accept':'application/json',
-                'Content-type':'application/json',
+      const getUserlist =()=>{
+        
+        fetch(url,{
+          method:'post',
+          body:JSON.stringify(newUser),
+          headers:{
+            'Accept':'apllication/json',
+            'Content-Type':'apllication/json',
+          }
+        }).then(function(response){
+          response.json().then(function(resp){
+            
+            if(resp.validation==="true")
+            {
+              if(resp.userType==="admin")
+              {
+                localStorage.setItem('adminId',resp.userId);
+                localStorage.setItem('userType','admin');
+                history.push('/admin');
+
+              }
+              if(resp.userType==='teacher')
+              {
+                localStorage.setItem('teacherId',resp.userId);
+                localStorage.setItem('userType','teacher');
+                history.push('/teacher');
+              }
             }
-        })
-       
-        
-        setData(await response.json());
-        
-       
-        console.log(datas); 
-        
-        
+            else{
+              alert("Invalid Username Or Password");
+            }
+          })
+        });
         
       }
 
@@ -54,9 +79,7 @@ export  const  Login = () =>{
     
 
 
-    }
-    
-    
+    }    
 
     return (
       <div align="center">

@@ -11,9 +11,15 @@ const Index = ()=>{
   return(
 
     <Router>
-      <Route exact path='/admin'>
+      <Switch>
+        <Route exact path='/'>
+            <Login></Login>
+        </Route>
+        <Route exact path='/admin'>
             <AdminLayout></AdminLayout>
         </Route>
+
+      </Switch>
     </Router>
   );
 }
