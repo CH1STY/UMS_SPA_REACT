@@ -1,0 +1,73 @@
+.tableCustom
+{
+    table-layout:fixed; 
+    font-size:13px; 
+    min-width: 100%; 
+    margin:2%;
+    word-wrap: break-word;
+    align-items: center;
+    align-content: center;
+}
+
+.formTable
+{
+    table-layout:fixed; 
+    font-size:16px; 
+    width: 100%; 
+    margin:2%;
+    word-wrap: break-word;
+    box-sizing: border-box;
+}
+
+form{
+    margin-bottom: 3%;
+}
+
+.labelT{
+    font-weight: bold;
+
+}
+
+.inputF{
+    width: 80%;
+    padding: 0px 5px;
+}
+
+.buttonDiv{
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+.a{
+    text-decoration: none !important;
+}
+
+.errorText{
+    padding: 5px 0px;
+    font-size: 13px;
+    font-weight: bold;
+    color: red;
+}
+
+.successMsg{
+    color: rgb(60, 160, 60);
+    text-align: center;
+}
+
+
+.btnMargin{
+    margin-bottom: 10px;
+}
+
+.form-select{
+    width: 80%;
+}
+
+.profilePic{
+    width: 100px;
+    height: 100px;
+    border: 5px solid grey;
+    border-radius: 50%;
+}
