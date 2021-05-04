@@ -5,6 +5,7 @@ import {Login} from './component/Login';
 import {AdminLayout} from './component/admin/adminLayout';
 import {Teacherlayout} from './component/teacher/teacherlayout';
 import {AddAdmin} from './component/admin/AddAdmin';
+import {AddAccount} from './component/admin/AddAccount';
 import {AdminDashBoard} from './component/admin/AdminDashBoard';
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
@@ -25,6 +26,10 @@ const Index = ()=>{
             
             <Route path='/admin/addAdmin'>
               <AddAdmin ></AddAdmin>
+            </Route>
+            
+            <Route path='/admin/addAccount'>
+              <AddAccount ></AddAccount>
             </Route>
 
             <AdminLayout></AdminLayout>
