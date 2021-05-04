@@ -196,3 +196,13 @@ nav ul .dropdownList:hover ul{
 	width: 80%;
 }
 
+
+.subTableTitle{
+	font-weight:bold; 
+	font-size:16px; 
+	text-align: center;
+}
+
+.btmLink{
+	text-align: center;
+}

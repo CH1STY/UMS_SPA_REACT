@@ -48,6 +48,7 @@
 	height: 50px;
 	position: fixed;
 	text-align: right;
+	
 }
 
 .headNav .title{
@@ -132,6 +133,7 @@ nav{
 	border-radius: 10px;
 	height: 100%;
 	padding-bottom: 100px;
+	
 
 }
 nav ul{
@@ -191,5 +193,7 @@ nav ul .dropdownList:hover ul{
 	top:50px;
 	left: 250px;
 	width: 80%;
+	
+
 }
 
