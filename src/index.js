@@ -30,6 +30,9 @@ const Index = ()=>{
             <AdminLayout></AdminLayout>
         
         </Route>
+        <Route exact path='/teacher'>
+            <Teacherlayout></Teacherlayout>
+        </Route>
 
 
       

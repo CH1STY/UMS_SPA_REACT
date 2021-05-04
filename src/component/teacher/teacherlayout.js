@@ -1,57 +1,87 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Link} from 'react-router-dom';
-//import './style.css';
+import {Link, useHistory} from 'react-router-dom';
+import useFetch from '../FetchFromPost';
+import './style.css';
 
 export const Teacherlayout = () => {
+    let history = useHistory();
+
+  if(localStorage.getItem('teacherId')==null)
+  {
+    history.push("/");
+  }
+
+  const Logout=()=>
+  {
+    var url ="http://localhost/ForReact/public/api/logout";
+    fetch(url).then(function(response){
+      response.json().then(function(resp){
+        console.log(resp);
+      })
+    })
+    localStorage.clear();
+  }
+  var url = "http://localhost/ForReact/public/api/teacher?teacherId="+localStorage.getItem('teacherId');
+  const userData = useFetch(url).users;
+
+  var imgSrc;
+  if(userData.profile_pic===null)
+  {
+    imgSrc = "http://localhost/atpProject/public/images/dummy.png";
+  }
+  else
+  {
+    imgSrc = "http://localhost/atpProject/public/"+userData.profile_pic;
+  }
   return (
     <div>
      <div className="headNav">
-        <span className="title" ><Link href="">University Management System </Link> </span>
+        <span className="title" ><Link to="">University Management System </Link> </span>
         <ul>
-        <li><Link href=""><i className="fas fa-user"></i> Profile</Link></li>
-        <li><Link href=""><i className="fas fa-cog" ></i>Setting</Link></li>
-        <li><Link href="" ><i className="fas fa-sign-out-alt"></i>Logout</Link></li>
+        <li><Link to=""><i className="fas fa-user"></i> Profile</Link></li>
+        <li><Link to=""><i className="fas fa-cog" ></i>Setting</Link></li>
+        <li><Link to="/" onClick={Logout}><i className="fas fa-sign-out-alt"></i>Logout</Link></li>
         </ul>
         </div>
         <nav>
         <div className="profileDiv" align="center" >
-        <img className="profileImage" src="" alt=""/>
-        <p className="username"></p>
+        <img className="profileImage" src={imgSrc} alt=""/>
+        <p className="username" >{userData.name}</p>
         </div>
 
         <div>
         <ul>
-        <li className="dropdownList"> <Link href="">Students <span>&rsaquo;</span></Link>
+        <li className="dropdownList"> <Link to="">Students <span>&rsaquo;</span></Link>
         <ul>
-            <li><Link href="">View Student List</Link></li>
-            <li><Link href="">Add student into course</Link></li>
+            <li><Link to="">View Student List</Link></li>
+            <li><Link to="">Add student into course</Link></li>
         </ul>
         </li>
-        <li className="dropdownList"> <Link href="">Courses<span>&rsaquo;</span></Link>
+        <li className="dropdownList"> <Link to="">Courses<span>&rsaquo;</span></Link>
             <ul>
-            <li><Link href="">Search Course</Link></li>
-            <li><Link href="">View Course List</Link></li>
-            <li><Link href="">My Courses</Link></li>
+            <li><Link to="">Search Course</Link></li>
+            <li><Link to="">View Course List</Link></li>
+            <li><Link to="">My Courses</Link></li>
             </ul>
         </li>
-        <li> <Link href="">Accounts</Link></li>
-        <li> <Link href="">Notes</Link></li>
-        <li> <Link href="">Assignments</Link></li>
-        <li className="dropdownList"> <Link href="">Notices<span>&rsaquo;</span></Link>
+        <li> <Link to="">Accounts</Link></li>
+        <li> <Link to="">Notes</Link></li>
+        <li> <Link to="">Assignments</Link></li>
+        <li className="dropdownList"> <Link to="">Notices<span>&rsaquo;</span></Link>
             <ul>
-            <li><Link href="">Admin notices</Link></li>
-            <li><Link href="">Upload notices</Link></li>
-            <li><Link href="">My notices</Link></li>
+            <li><Link to="">Admin notices</Link></li>
+            <li><Link to="">Upload notices</Link></li>
+            <li><Link to="">My notices</Link></li>
             </ul>
         </li>
-        <li className="dropdownList"> <Link href="">Application<span>&rsaquo;</span></Link>
+        <li className="dropdownList"> <Link to="">Application<span>&rsaquo;</span></Link>
             <ul>
-            <li><Link href="">Get drop request</Link></li>
-            <li><Link href="">Request to resign</Link></li>
+            <li><Link to="">Get drop request</Link></li>
+            <li><Link to="">Request to resign</Link></li>
             </ul>
         </li>
-        <li> <Link href="https://openlibrary.org/">Library</Link></li>
+        <li> <Link to="https://openlibrary.org/">Library</Link></li>
 
         </ul>
         </div>

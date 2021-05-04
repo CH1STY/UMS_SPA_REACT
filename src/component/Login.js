@@ -1,5 +1,5 @@
 import { useHistory} from 'react-router-dom';
-
+import './Login.css';
 import {useState} from 'react';
 
 export  const  Login = () =>{
@@ -12,6 +12,10 @@ export  const  Login = () =>{
     if(localStorage.getItem('userType')==='admin')
     {
       history.push('/admin');
+    }
+    if(localStorage.getItem('userType')==='teacher')
+    {
+      history.push('/teacher');
     }
     
   }
@@ -74,26 +78,44 @@ export  const  Login = () =>{
 
      getUserlist();
 
-    
-
-    
-
-
     }    
 
     return (
-      <div align="center">
-        <h1 align="center">Login Page</h1>
-        <form align="center" onSubmit={FormSubmit} >	
-              <label>Username</label>
-                          <input type="text" name="username" value={newUser.username} onChange={changeUser}></input><br></br>
-              <label>Password</label>
-                          <input  type="password" name="password" value={newUser.password} onChange={changeUser}></input><br></br>                          
-                          <button>
-                              Login
-                          </button>
+     
+        <div className="container">
+          <div className="row">
+            <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
+              <div className="card card-signin my-5">
+                <div className="card-body" >
+                  <h5 className="card-title text-center">Log In</h5>
+                  <form className="form-signin" onSubmit={FormSubmit}>
+                    <div className="form-label-group">
+                      <input type="text" id="inputUsername" className="form-control" placeholder="Username" 
+                      name="username" value={newUser.username} onChange={changeUser} required autofocus/>
+                      <label for="inputUsername">Username</label>
+                    </div>
+      
+                    <div className="form-label-group">
+                      <input type="password" id="inputPassword" className="form-control" placeholder="Password" 
+                      name="password" value={newUser.password} onChange={changeUser} required/>
+                      <label for="inputPassword">Password</label>
+                    </div>
+      
+                    <div className="custom-control custom-checkbox mb-3">
+                      <input type="checkbox" className="custom-control-input" id="customCheck1"/>
+                      <label className="custom-control-label" for="customCheck1">Remember password</label>
+                    </div>
+                    <button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+                    <button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Student Registration</button>
+                    <hr className="my-4"/>
+                   
                   </form>
-      </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      
     )
   }
   
