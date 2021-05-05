@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link, useHistory} from 'react-router-dom';
 import useFetch from '../FetchFromPost';
-//import './style.css';
+import './style.css';
 
 export const Teacherlayout = () => {
     let history = useHistory();
@@ -55,14 +55,14 @@ export const Teacherlayout = () => {
         <li className="dropdownList"> <Link to="">Students <span>&rsaquo;</span></Link>
         <ul>
             <li><Link to="/teacher/studentlist">View Student List</Link></li>
-            <li><Link to="">Add student into course</Link></li>
+            <li><Link to="/teacher/studentlist">Add student into course</Link></li>
         </ul>
         </li>
         <li className="dropdownList"> <Link to="">Courses<span>&rsaquo;</span></Link>
             <ul>
             <li><Link to="/teacher/courselist">View Course List</Link></li>
-            <li><Link to="">Search Course</Link></li>
-            <li><Link to="">My Courses</Link></li>
+            <li><Link to="/teacher/courselist">Search Course</Link></li>
+            <li><Link to="/teacher/courselist">My Courses</Link></li>
             </ul>
         </li>
         <li> <Link to="/teacher/account">Accounts</Link></li>
