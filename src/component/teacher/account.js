@@ -1,7 +1,10 @@
 import React from 'react';
+import {useFetch} from '../FetchFromPost';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Account = () => {
+export const Account = () => {
+  var tpurl = "http://localhost/ForReact/public/api/teacher/profile?teacherId=" + localStorage.getItem('teacherId');
+  let  account = useFetch(tpurl).users;
   return (
     <div className='container'>
       <h1 align="center">ACCOUNT Details</h1>
@@ -10,35 +13,38 @@ const Account = () => {
         <thead>
             <tr>
             <th scope="col">NAME</th>
-            <th>1</th>
+            <th>{account.name}</th>
             </tr>
             <tr>
             <th scope="col">USERNAME</th>
-            <td>Mark</td>
+            <td>{account.username}</td>
             </tr>
             <tr>
             <th scope="col">EMAIL</th>
-            <td>Otto</td>
+            <td>{account.email}</td>
             </tr>
             <tr>
             <th scope="col">PHONE</th>
-            <td>@mdo</td>
+            <td>{account.phone}</td>
             </tr>
             <tr>
             <th scope="col">SALARY</th>
-            <td>Jacob</td>
+            <td>{account.salary}</td>
             </tr>
             <tr>
             <th scope="col">BALANCE</th>
-            <td>Thornton</td>
+            <td>{account.balance}</td>
             </tr>
             <tr>
             <th scope="col">USER'S STATUS</th>
-            <td>@fat</td>
+            <td>Active</td>
             </tr>
             <tr>
             <th scope="col">BIRTHDATE</th>
-            <td>Larry</td>
+            <td>{account.birthdate}</td>
+            </tr>
+            <tr align="center">
+            <td><button className="btn btn-success">PRINT</button></td>
             </tr>
         </thead>
         </table>
@@ -46,4 +52,3 @@ const Account = () => {
   );
 };
 
-export default Account;

@@ -1,7 +1,15 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {useParams} from 'react-router-dom';
+import {useFetch} from '../FetchFromPost';
 
-const Coursedetails = () => {
+export const Coursedetails = () => {
+
+  const {id:eid}=useParams();
+  console.log(eid);
+  var crsurl="http://localhost/ForReact/public/api/fetchCourseDetails/"+eid;
+  let coursedetails = useFetch(crsurl).users;
+
   return (
     <div className='container'>
       <h1 align="center">Course Details</h1>
@@ -10,43 +18,35 @@ const Coursedetails = () => {
         <thead>
             <tr>
             <th scope="col">COURSE NAME</th>
-            <th>1</th>
+            <th>{coursedetails.name}</th>
             </tr>
             <tr>
             <th scope="col">COURSE ID</th>
-            <td>Mark</td>
+            <td>{coursedetails.course_id}</td>
             </tr>
             <tr>
             <th scope="col">COURSE CREDIT</th>
-            <td>Otto</td>
+            <td>{coursedetails.credits}</td>
             </tr>
             <tr>
             <th scope="col">SUBJECT CODE</th>
-            <td>@mdo</td>
-            </tr>
-            <tr>
-            <th scope="col">SUBJECT NAME</th>
-            <td>Jacob</td>
+            <td>{coursedetails.subject_code}</td>
             </tr>
             <tr>
             <th scope="col">SUBJECT PREREQUISITE</th>
-            <td>Thornton</td>
+            <td>{coursedetails.prerequisite}</td>
             </tr>
             <tr>
-            <th scope="col">DEPARTMENT NAME</th>
-            <td>@fat</td>
+            <th scope="col">DEPARTMENT ID</th>
+            <td>{coursedetails.department_id}</td>
             </tr>
             <tr>
             <th scope="col">SEMESTER</th>
-            <td>Larry</td>
-            </tr>
-            <tr>
-            <th scope="col">COURSE STATUS</th>
-            <td>the Bird</td>
+            <td>{coursedetails.semester}</td>
             </tr>
             <tr>
             <th scope="col">CREATED AT</th>
-            <td>@twitter</td>
+            <td>{coursedetails.created_at}</td>
             </tr>
         </thead>
         </table>
@@ -54,4 +54,4 @@ const Coursedetails = () => {
   );
 };
 
-export default Coursedetails;
+
