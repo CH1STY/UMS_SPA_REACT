@@ -1,8 +1,14 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import {useParams} from 'react-router-dom';
+import {useFetch} from '../FetchFromPost';
+export const Studentdetails = () => {
 
-const Studentdetails = () => {
-  return (
+  const {id:eid}=useParams();
+  console.log(eid);
+  var stdurl="http://localhost/ForReact/public/api/fetchStudentDetails/"+eid;
+  let studentdetails = useFetch(stdurl).users;
+    return (
     <div className='container'>
       <h1 align="center">STUDENT Details</h1>
       <br/><br/>
@@ -10,43 +16,43 @@ const Studentdetails = () => {
         <thead>
             <tr>
             <th scope="col">STUDENT NAME</th>
-            <th>1</th>
+            <th>{studentdetails.name}</th>
             </tr>
             <tr>
             <th scope="col">STUDENT ID</th>
-            <td>Mark</td>
+            <td>{studentdetails.student_id}</td>
             </tr>
             <tr>
             <th scope="col">EMAIL</th>
-            <td>Otto</td>
+            <td>{studentdetails.email}</td>
             </tr>
             <tr>
             <th scope="col">PHONE</th>
-            <td>@mdo</td>
+            <td>{studentdetails.phone}</td>
             </tr>
             <tr>
             <th scope="col">BIRTHDATE</th>
-            <td>Jacob</td>
+            <td>{studentdetails.birthdate}</td>
             </tr>
             <tr>
             <th scope="col">CREDITS COMPLETED</th>
-            <td>Thornton</td>
+            <td>{studentdetails.credits_completed}</td>
             </tr>
             <tr>
             <th scope="col">CGPA</th>
-            <td>@fat</td>
+            <td>{studentdetails.CGPA}</td>
             </tr>
             <tr>
             <th scope="col">ADDRESS</th>
-            <td>Larry</td>
+            <td>{studentdetails.address}</td>
             </tr>
             <tr>
             <th scope="col">STATUS</th>
-            <td>the Bird</td>
+            <td>{studentdetails.status}</td>
             </tr>
             <tr>
             <th scope="col">ADMISSION DATE</th>
-            <td>@twitter</td>
+            <td>{studentdetails.created_at.substr(0,10)}</td>
             </tr>
         </thead>
         </table>
@@ -54,4 +60,4 @@ const Studentdetails = () => {
   );
 };
 
-export default Studentdetails;
+

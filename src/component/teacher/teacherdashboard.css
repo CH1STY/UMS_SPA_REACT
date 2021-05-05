@@ -1,0 +1,17 @@
+.cardstyle{
+    padding:2%;
+}
+
+.card-header{
+    background-color: #ef5d7a;
+}
+.h1{
+    color:white;
+}
+
+.card-text{
+    font-size: 14px;
+}
+.upbtn{
+    padding:2%;
+}

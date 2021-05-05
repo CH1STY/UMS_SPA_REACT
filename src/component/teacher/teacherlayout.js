@@ -39,7 +39,7 @@ export const Teacherlayout = () => {
      <div className="headNav">
         <span className="title" ><Link to="">University Management System </Link> </span>
         <ul>
-        <li><Link to=""><i className="fas fa-user"></i> Profile</Link></li>
+        <li><Link to="/teacher/profile"><i className="fas fa-user"></i> Profile</Link></li>
         <li><Link to=""><i className="fas fa-cog" ></i>Setting</Link></li>
         <li><Link to="/" onClick={Logout}><i className="fas fa-sign-out-alt"></i>Logout</Link></li>
         </ul>
@@ -54,34 +54,33 @@ export const Teacherlayout = () => {
         <ul>
         <li className="dropdownList"> <Link to="">Students <span>&rsaquo;</span></Link>
         <ul>
-            <li><Link to="">View Student List</Link></li>
+            <li><Link to="/teacher/studentlist">View Student List</Link></li>
             <li><Link to="">Add student into course</Link></li>
         </ul>
         </li>
         <li className="dropdownList"> <Link to="">Courses<span>&rsaquo;</span></Link>
             <ul>
+            <li><Link to="/teacher/courselist">View Course List</Link></li>
             <li><Link to="">Search Course</Link></li>
-            <li><Link to="">View Course List</Link></li>
             <li><Link to="">My Courses</Link></li>
             </ul>
         </li>
-        <li> <Link to="">Accounts</Link></li>
-        <li> <Link to="">Notes</Link></li>
-        <li> <Link to="">Assignments</Link></li>
+        <li> <Link to="/teacher/account">Accounts</Link></li>
+        <li> <Link to="/teacher/notes">Notes</Link></li>
+        <li> <Link to="/teacher/assignment">Assignments</Link></li>
         <li className="dropdownList"> <Link to="">Notices<span>&rsaquo;</span></Link>
             <ul>
-            <li><Link to="">Admin notices</Link></li>
-            <li><Link to="">Upload notices</Link></li>
-            <li><Link to="">My notices</Link></li>
+            <li><Link to="/teacher/adminnotice">Admin notices</Link></li>
+            <li><Link to="/teacher/notices">Upload notices</Link></li>
             </ul>
         </li>
         <li className="dropdownList"> <Link to="">Application<span>&rsaquo;</span></Link>
             <ul>
-            <li><Link to="">Get drop request</Link></li>
-            <li><Link to="">Request to resign</Link></li>
+            <li><Link to="/teacher/applicationdrop">Get drop request</Link></li>
+            <li><Link to="/teacher/application">Request to resign</Link></li>
             </ul>
         </li>
-        <li> <Link to="https://openlibrary.org/">Library</Link></li>
+        <li> <Link to="https://manybooks.net/">Library</Link></li>
 
         </ul>
         </div>

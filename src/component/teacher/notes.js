@@ -1,8 +1,11 @@
 import React from 'react';
+import {useFetch} from '../FetchFromPost';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Note = () => {
+export const Note = () => {
 
+  var nourl = "http://localhost/ForReact/public/api/fetchTeacherNote";
+  let notelist = useFetch(nourl).users;
   return (
     <div className='container'>
         <div className="row">
@@ -11,7 +14,7 @@ const Note = () => {
               <input type="file" name="file" className="form-control"/>
           </div>
 
-          <div class="col-md-6">
+          <div className="upbtn">
               <button type="submit" className="btn btn-success">Upload</button>
           </div>
     </div>
@@ -21,9 +24,17 @@ const Note = () => {
             <th scope="col">NOTE ID</th>
             <th scope="col">VIEW NOTE</th>
         </thead>
+        <tbody>
+            {notelist.map(note=>
+                <tr>
+                    <td>{note.note_id}</td>
+                    <td>{note.details}</td>
+                </tr>
+                )
+                }
+        </tbody>
       </table>
       </div>
   );
 };
 
-export default Note;
