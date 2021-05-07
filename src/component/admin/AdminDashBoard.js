@@ -36,7 +36,7 @@ export const AdminDashBoard= ()=>{
                 <tbody>
                 {
                     universities.slice(0,5).map(universities=>
-                        <tr>
+                        <tr key={universities.id}>
                             <td>{universities.name}</td>
                             <td>{universities.university_id}</td>
                             <td>{universities.admin_id}</td>
