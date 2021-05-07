@@ -34,11 +34,11 @@ export const AdminLayout = () => {
   var imgSrc;
   if(userData.profile_pic===null)
   {
-    imgSrc = "http://localhost/atpProject/public/images/dummy.png";
+    imgSrc = "http://localhost/ForReact/public/images/dummy.png";
   }
   else
   {
-    imgSrc = "http://localhost/atpProject/public/"+userData.profile_pic;
+    imgSrc = "http://localhost/ForReact/public/"+userData.profile_pic;
   }
 
 
@@ -49,7 +49,7 @@ export const AdminLayout = () => {
      <div className="headNav">
         <span className="title" ><Link to="/admin">University Management System </Link> </span>
         <ul>
-        <li><Link to=""><i className="fas fa-user"></i> Profile</Link></li>
+        <li><Link to="/admin/profile"><i className="fas fa-user"></i> Profile</Link></li>
         <li><Link to=""><i className="fas fa-cog" ></i>Setting</Link></li>
         <li><Link to="/" onClick={Logout} ><i className="fas fa-sign-out-alt"></i>Logout</Link></li>
         </ul>

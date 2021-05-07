@@ -25,6 +25,7 @@ import {NoticeAdmin} from './component/teacher/noticeadmin';
 import {ViewUniv} from './component/admin/ViewUniv';
 import {EditUniv} from './component/admin/EditUniv';
 import {ProfileEdit} from './component/teacher/profileedit';
+import {AdminProfile} from './component/admin/Profile';
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
@@ -61,6 +62,9 @@ const Index = ()=>{
             </Route>
             <Route path='/admin/EditUniv/:id'>
               <EditUniv/>
+            </Route>
+            <Route path='/admin/profile'>
+              <AdminProfile></AdminProfile>
             </Route>
 
             <AdminLayout></AdminLayout>
