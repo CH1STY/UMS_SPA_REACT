@@ -52,7 +52,7 @@ export const Studentdetails = () => {
             </tr>
             <tr>
             <th scope="col">ADMISSION DATE</th>
-            <td>{studentdetails.created_at.substr(0,10)}</td>
+            <td>{studentdetails.created_at}</td>
             </tr>
         </thead>
         </table>
