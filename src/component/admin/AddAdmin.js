@@ -28,10 +28,6 @@ export const AddAdmin = ()=>{
         e.preventDefault();
 
         var url="http://localhost/ForReact/public/api/addAdmin";
-      
-
-
-
 
       const addUser =()=>{
         var valid = true;
