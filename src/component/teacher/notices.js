@@ -1,15 +1,20 @@
-import React from 'react';
+import {React,useState} from 'react';
 import {useFetch} from '../FetchFromPost';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
+import { useHistory } from 'react-router';
 
 export const Notice = () => {
 
   var neurl = "http://localhost/ForReact/public/api/fetchTeacherNotice";
   let noticelist = useFetch(neurl).users;
-
+  
+  const formSubmmit = (e) =>{
+    e.preventDefault();
+  }
   return (
     <div className='container'>
-    
+      <form onSubmit={formSubmmit}>
         <div className="row" >
           <div className="col-md-6" align="center">
           <br/>
@@ -38,6 +43,7 @@ export const Notice = () => {
         </tbody>
       </table>
     <br/>
+    </form>
       </div>
   );
 };
