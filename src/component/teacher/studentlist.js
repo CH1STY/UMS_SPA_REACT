@@ -23,7 +23,8 @@ export const StudentList=()=>{
                     <td>{student.student_id}</td>
                     <td>{student.name}</td>
                     <td>{student.status}</td>
-                    <td><Link to={`/teacher/studentDetails/${student.id}`}><button className="btn btn-success">STUDENT DETAILS</button></Link></td>
+                    <td><Link to={`/teacher/studentDetails/${student.id}`}>
+                        <button className="btn btn-success">STUDENT DETAILS</button></Link></td>
                 </tr>
                 )
                 }
