@@ -29,7 +29,6 @@ export const AdminProfile = ()=>{
         let formdata = new FormData();
 
         formdata.append('image',file);
-        console.log(formdata);
 
         const fetchData = async () =>{
 
@@ -41,6 +40,7 @@ export const AdminProfile = ()=>{
             {
                 alert("Profile Pic Updated");
                 history.go(0);
+               
             }
             else
             {
@@ -71,10 +71,12 @@ export const AdminProfile = ()=>{
                         <tr>
                             <td colSpan="2"> 
                                 <img src={imgSrc} className="profilePic"></img>
-                                <input name="image" onChange={changeImage} type="file"></input>
+                                <input alt="" name="image" onChange={changeImage} type="file"></input>
 
                             </td>
                         </tr>
+
+                        
 
                         <tr>
                             <td className="labelT">Name:</td>
