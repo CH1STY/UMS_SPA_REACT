@@ -10,6 +10,7 @@ export const AdminLayout = () => {
 
   let history = useHistory();
 
+
   if(localStorage.getItem('adminId')==null)
   {
     history.push("/");
