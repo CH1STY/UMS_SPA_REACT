@@ -1,7 +1,7 @@
 import {useFetch} from '../FetchFromPost';
 import {Link} from 'react-router-dom';
 
-export const CourseList=()=>{
+export const StudentCourseList=()=>{
     console.log(localStorage.getItem('studentId'));
     var curl = "http://localhost/ForReact/public/api/fetchAllCourse?studentId=" + localStorage.getItem('studentId');
     let courselist = useFetch(curl).users;

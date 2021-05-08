@@ -13,13 +13,13 @@ import {AdminDashBoard} from './component/admin/AdminDashBoard';
 import {StudentList} from './component/teacher/studentlist';
 import {Studentdetails} from './component/teacher/studentdetails';
 
-import {CourseList} from './component/student/courseList';
+import {StudentCourseList} from './component/student/courseList';
 import {CompletedCourseList} from './component/student/completedCourseList';
 import {GradeCourseList} from './component/student/gradeCourseList';
 import {DropedCourseList} from './component/student/dropedCourseList';
 import {StudentRegistration} from './component/student/studentRegistration';
 import {StudentProfile} from './component/student/studentProfile';
-import {CourseList} from './component/teacher/courselist';
+import {TeacherCourseList} from './component/teacher/courselist';
 
 import {Coursedetails} from './component/teacher/coursedetails';
 import {TeacherDashboard} from './component/teacher/teacherdashboard';
@@ -92,7 +92,7 @@ const Index = ()=>{
             <Studentdetails></Studentdetails>
           </Route>
           <Route exact path='/teacher/courselist'>
-            <CourseList></CourseList>
+            <TeacherCourseList></TeacherCourseList>
           </Route>
           <Route exact path='/teacher/courseDetails/:id'>
             <Coursedetails></Coursedetails>
@@ -135,7 +135,7 @@ const Index = ()=>{
 
         <Route path='/student'>
           <Route exact path='/student/courseList'>
-            <CourseList></CourseList>
+            <StudentCourseList></StudentCourseList>
           </Route>
           <Route exact path='/student/completedCourseList'>
             <CompletedCourseList></CompletedCourseList>

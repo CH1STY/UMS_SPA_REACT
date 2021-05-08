@@ -1,7 +1,7 @@
 import {useFetch} from '../FetchFromPost';
 import {Link} from 'react-router-dom';
 
-export const CourseList=()=>{
+export const TeacherCourseList=()=>{
     var crsurl = "http://localhost/ForReact/public/api/fetchCourse";
     let courselist = useFetch(crsurl).users;
     console.log(courselist);
