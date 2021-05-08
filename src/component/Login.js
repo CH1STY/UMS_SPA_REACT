@@ -1,5 +1,6 @@
-import { useHistory} from 'react-router-dom';
+
 import './Login.css';
+import {Link,useHistory} from 'react-router-dom';
 import {useState} from 'react';
 
 export  const  Login = () =>{
@@ -16,6 +17,10 @@ export  const  Login = () =>{
     if(localStorage.getItem('userType')==='teacher')
     {
       history.push('/teacher');
+    }
+    if(localStorage.getItem('userType')==='student')
+    {
+      history.push('/student');
     }
     
   }
@@ -67,6 +72,12 @@ export  const  Login = () =>{
                 localStorage.setItem('userType','teacher');
                 history.push('/teacher');
               }
+              if(resp.userType==='student')
+              {
+                localStorage.setItem('studentId',resp.userId);
+                localStorage.setItem('userType','student');
+                history.push('/student');
+              }
             }
             else{
               alert("Invalid Username Or Password");
@@ -106,7 +117,7 @@ export  const  Login = () =>{
                       <label className="custom-control-label" htmlFor="customCheck1">Remember password</label>
                     </div>
                     <button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
-                    <button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Student Registration</button>
+                    <button className="btn btn-lg btn-primary btn-block text-uppercase"><Link to="/student/studentRegistration">Student Registration</Link></button>
                     <hr className="my-4"/>
                    
                   </form>
