@@ -80,7 +80,7 @@ export const Teacherlayout = () => {
             <li><Link to="/teacher/application">Request to resign</Link></li>
             </ul>
         </li>
-        <li> <Link to="https://manybooks.net/">Library</Link></li>
+        <li onClick={()=>window.open("https://manybooks.net/")}><a>Library</a></li>
 
         </ul>
         </div>

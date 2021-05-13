@@ -58,6 +58,7 @@ export const Assignment = () => {
           </div>
     </div>
     <br/>
+    </form>
     <table align="center" className="table table-condensed table-hover ">
         <thead className="thead-dark" align="center">
             <th scope="col">ASSIGNMENT ID</th>
@@ -76,7 +77,7 @@ export const Assignment = () => {
                 }
         </tbody>
       </table>
-      </form>
+    
       </div>
   );
 };
